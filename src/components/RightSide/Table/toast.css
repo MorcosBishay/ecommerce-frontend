@@ -2,6 +2,6 @@
   --toastify-toast-width: 400px;
   --toastify-color-success: #039855;
   --toastify-icon-color-success: var(--toastify-color-success);
-  --toastify-font-family: "inter";
+  --toastify-font-family: 'inter';
   --toastify-text-color-light: #101828;
 }

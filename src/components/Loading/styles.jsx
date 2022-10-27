@@ -1,29 +1,29 @@
 const styles = () => ({
   root: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   progress: {
-    position: "relative",
-    marginTop: "150px",
-    marginRight: "400px",
+    position: 'relative',
+    marginTop: '150px',
+    marginRight: '400px',
   },
   top: {
-    color: "#FE6215 !important",
-    animationDuration: "2000ms",
-    position: "absolute",
+    color: '#FE6215 !important',
+    animationDuration: '2000ms',
+    position: 'absolute',
     left: 0,
   },
   circle: {
-    strokeLinecap: "round",
-    color: "primary",
+    strokeLinecap: 'round',
+    color: 'primary',
   },
   logo: {
-    position: "absolute",
+    position: 'absolute',
     left: 80,
     top: 90,
   },
-});
+})
 
-export default styles;
+export default styles

@@ -1,22 +1,22 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
-import { Grid } from "@mui/material";
-import Header from "./Header/Header";
-import SubHeader from "./SubHeader/SubHeader";
-import BasicTable from "./Table/BasicTable";
-import styles from "./styles";
-import useClasses from "../../hooks/useClasses";
+import React, { useState } from 'react'
+import PropTypes from 'prop-types'
+import { Grid } from '@mui/material'
+import Header from './Header/Header'
+import SubHeader from './SubHeader/SubHeader'
+import BasicTable from './Table/BasicTable'
+import styles from './styles'
+import useClasses from '../../hooks/useClasses'
 
-const RightSide = ({ clicked }) => {
-  const classes = useClasses(styles);
+function RightSide({ clicked }) {
+  const classes = useClasses(styles)
 
-  const [value, setValue] = useState(0);
-  const [sortType, setSortType] = useState("name");
-  const [submit, setSubmit] = React.useState(false);
+  const [value, setValue] = useState(0)
+  const [sortType, setSortType] = useState('name')
+  const [submit, setSubmit] = React.useState(false)
 
   const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
+    setValue(newValue)
+  }
 
   return (
     <Grid container direction="row">
@@ -43,11 +43,11 @@ const RightSide = ({ clicked }) => {
         />
       </Grid>
     </Grid>
-  );
-};
+  )
+}
 
-export default RightSide;
+export default RightSide
 
 RightSide.propTypes = {
   clicked: PropTypes.string.isRequired,
-};
+}

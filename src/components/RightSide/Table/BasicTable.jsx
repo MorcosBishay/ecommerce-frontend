@@ -1,20 +1,20 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useState } from "react";
-import PropTypes from "prop-types";
-import { toast } from "react-toastify";
-import { Button, Grid, Typography } from "@mui/material";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
-import TableRow from "@mui/material/TableRow";
-import { getAllFruitsWithPagination } from "../../../services/api/fruit.services";
-import { getAllVegetablesWithPagination } from "../../../services/api/vegetable.services";
-import { getAllElectronicsWithPagination } from "../../../services/api/electronics.services";
-import styles from "./styles";
-import useClasses from "../../../hooks/useClasses";
-import MyPagination from "./MyPagination";
-import Loading from "../../Loading/Loading";
-import "./toast.css";
+import React, { useEffect, useState } from 'react'
+import PropTypes from 'prop-types'
+import { toast } from 'react-toastify'
+import { Button, Grid, Typography } from '@mui/material'
+import Table from '@mui/material/Table'
+import TableBody from '@mui/material/TableBody'
+import TableCell from '@mui/material/TableCell'
+import TableRow from '@mui/material/TableRow'
+import { getAllFruitsWithPagination } from '../../../services/api/fruit.services'
+import { getAllVegetablesWithPagination } from '../../../services/api/vegetable.services'
+import { getAllElectronicsWithPagination } from '../../../services/api/electronics.services'
+import styles from './styles'
+import useClasses from '../../../hooks/useClasses'
+import MyPagination from './MyPagination'
+import Loading from '../../Loading/Loading'
+import './toast.css'
 
 export default function BasicTable({
   clicked,
@@ -23,58 +23,58 @@ export default function BasicTable({
   submit,
   setSubmit,
 }) {
-  const classes = useClasses(styles);
+  const classes = useClasses(styles)
 
-  const limit = 9;
-  const [page, setPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(0);
-  const [items, setItems] = useState([]);
+  const limit = 9
+  const [page, setPage] = useState(1)
+  const [totalPages, setTotalPages] = useState(0)
+  const [items, setItems] = useState([])
 
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    setSubmit(false);
-    setPage(1);
-  }, [submit]);
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    setPage(1);
-  }, [clicked, value]);
+    setSubmit(false)
+    setPage(1)
+  }, [submit])
+
+  useEffect(() => {
+    setPage(1)
+  }, [clicked, value])
 
   useEffect(() => {
     async function fetchData() {
-      setLoading(true);
-      if (clicked === "Food") {
+      await setLoading(true)
+      if (clicked === 'Food') {
         if (value === 0) {
           await getAllFruitsWithPagination(limit, page, sortType).then(
             (res) => {
-              setItems(res.documents);
-              setTotalPages(res.pages);
-            }
-          );
+              setItems(res.documents)
+              setTotalPages(res.pages)
+            },
+          )
         } else {
           await getAllVegetablesWithPagination(limit, page, sortType).then(
             (res) => {
-              setItems(res.documents);
-              setTotalPages(res.pages);
-            }
-          );
+              setItems(res.documents)
+              setTotalPages(res.pages)
+            },
+          )
         }
       } else {
         await getAllElectronicsWithPagination(limit, page, sortType).then(
           (res) => {
-            setItems(res.documents);
-            setTotalPages(res.pages);
-          }
-        );
+            setItems(res.documents)
+            setTotalPages(res.pages)
+          },
+        )
       }
-      setLoading(false);
+      await setLoading(false)
     }
 
-    fetchData();
-  }, [clicked, page, submit, value]);
+    fetchData()
+  }, [clicked, page, submit, value])
 
-  if (loading) return <Loading />;
+  if (loading) return <Loading />
 
   return (
     <Grid container direction="row">
@@ -99,10 +99,10 @@ export default function BasicTable({
                       toast.success(
                         `Successfully Bought ${row.name} for $${row.price}`,
                         {
-                          position: "top-right",
+                          position: 'top-right',
                           autoClose: 2000,
-                        }
-                      );
+                        },
+                      )
                     }}
                     variant="contained"
                     className={classes.button}
@@ -124,7 +124,7 @@ export default function BasicTable({
         <MyPagination page={page} setPage={setPage} totalPages={totalPages} />
       </Grid>
     </Grid>
-  );
+  )
 }
 
 BasicTable.propTypes = {
@@ -133,4 +133,4 @@ BasicTable.propTypes = {
   sortType: PropTypes.string.isRequired,
   submit: PropTypes.bool.isRequired,
   setSubmit: PropTypes.func.isRequired,
-};
+}

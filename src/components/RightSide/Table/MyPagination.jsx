@@ -1,14 +1,14 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Button, Grid, Typography } from "@mui/material";
-import Pagination from "@mui/material/Pagination";
-import { ReactComponent as RightArrow } from "../../../assets/RightArrow.svg";
-import { ReactComponent as LeftArrow } from "../../../assets/RightArrow.svg";
-import styles from "./styles";
-import useClasses from "../../../hooks/useClasses";
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Button, Grid, Typography } from '@mui/material'
+import Pagination from '@mui/material/Pagination'
+import { ReactComponent as RightArrow } from '../../../assets/RightArrow.svg'
+import { ReactComponent as LeftArrow } from '../../../assets/LeftArrow.svg'
+import styles from './styles'
+import useClasses from '../../../hooks/useClasses'
 
-const MyPagination = ({ page, setPage, totalPages }) => {
-  const classes = useClasses(styles);
+function MyPagination({ page, setPage, totalPages }) {
+  const classes = useClasses(styles)
 
   return (
     <Grid
@@ -29,7 +29,7 @@ const MyPagination = ({ page, setPage, totalPages }) => {
             alignItems="center"
             justifyContent="space-between"
           >
-            <Grid item className={classes.leftArrowGrid}>
+            <Grid item>
               <LeftArrow />
             </Grid>
             <Grid item alignSelf="center">
@@ -71,13 +71,13 @@ const MyPagination = ({ page, setPage, totalPages }) => {
         </Button>
       </Grid>
     </Grid>
-  );
-};
+  )
+}
 
-export default MyPagination;
+export default MyPagination
 
 MyPagination.propTypes = {
   page: PropTypes.number.isRequired,
   setPage: PropTypes.func.isRequired,
   totalPages: PropTypes.number.isRequired,
-};
+}

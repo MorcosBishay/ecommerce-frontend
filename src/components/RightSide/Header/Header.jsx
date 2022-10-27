@@ -1,11 +1,11 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Grid, Typography } from "@mui/material";
-import styles from "./styles";
-import useClasses from "../../../hooks/useClasses";
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Grid, Typography } from '@mui/material'
+import styles from './styles'
+import useClasses from '../../../hooks/useClasses'
 
-const Header = ({ text }) => {
-  const classes = useClasses(styles);
+function Header({ text }) {
+  const classes = useClasses(styles)
   return (
     <Grid container direction="column">
       <Grid item className={classes.firstGridItem}>
@@ -17,11 +17,11 @@ const Header = ({ text }) => {
         </Typography>
       </Grid>
     </Grid>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header
 
 Header.propTypes = {
   text: PropTypes.string.isRequired,
-};
+}

@@ -1,27 +1,25 @@
-import axios from "axios";
+import axios from 'axios'
 
-import axiosRetry from "axios-retry";
+import axiosRetry from 'axios-retry'
 
 const instance = axios.create({
   baseURL: process.env.REACT_APP_BACKEND_API,
   timeout: 10000,
   headers: {
     common: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
     },
   },
-});
+})
 
 instance.interceptors.response.use(
   (response) => response.data,
-  (error) => Promise.reject(error)
-);
+  (error) => Promise.reject(error),
+)
 
-axiosRetry(instance, { retries: 5, retryDelay: axiosRetry.exponentialDelay });
+axiosRetry(instance, { retries: 5, retryDelay: axiosRetry.exponentialDelay })
 
-const api = () => {
-  return instance;
-};
+const api = () => instance
 
-export default api;
+export default api

@@ -1,10 +1,10 @@
 const styles = () => ({
   headerGrid: {
-    paddingTop: "32px !important",
+    paddingTop: '32px !important',
   },
   grid: {
-    paddingTop: "24px !important",
+    paddingTop: '24px !important',
   },
-});
+})
 
-export default styles;
+export default styles

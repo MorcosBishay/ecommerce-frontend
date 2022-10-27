@@ -1,20 +1,20 @@
-import * as React from "react";
-import PropTypes from "prop-types";
-import Button from "@mui/material/Button";
-import Dialog from "@mui/material/Dialog";
-import DialogActions from "@mui/material/DialogActions";
-import DialogContent from "@mui/material/DialogContent";
-import DialogTitle from "@mui/material/DialogTitle";
-import styles from "./styles";
-import useClasses from "../../../hooks/useClasses";
+import * as React from 'react'
+import PropTypes from 'prop-types'
+import Button from '@mui/material/Button'
+import Dialog from '@mui/material/Dialog'
+import DialogActions from '@mui/material/DialogActions'
+import DialogContent from '@mui/material/DialogContent'
+import DialogTitle from '@mui/material/DialogTitle'
 import {
   FormControl,
   InputLabel,
   MenuItem,
   Select,
   Typography,
-} from "@mui/material";
-import { Box } from "@mui/system";
+  Box,
+} from '@mui/material'
+import styles from './styles'
+import useClasses from '../../../hooks/useClasses'
 
 export default function SortAlert({
   open,
@@ -23,7 +23,7 @@ export default function SortAlert({
   setSortType,
   setSubmit,
 }) {
-  const classes = useClasses(styles);
+  const classes = useClasses(styles)
 
   return (
     <div>
@@ -42,24 +42,24 @@ export default function SortAlert({
                 label="By"
                 onChange={(e) => setSortType(e.target.value)}
               >
-                <MenuItem value={"name"}>
+                <MenuItem value="name">
                   <Typography className={classes.alertMenuItems}>
                     Name ( from A to Z )
                   </Typography>
                 </MenuItem>
-                <MenuItem value={"-name"}>
+                <MenuItem value="-name">
                   <Typography className={classes.alertMenuItems}>
                     Name ( from Z to A )
                   </Typography>
                 </MenuItem>
-                <MenuItem value={"price"}>
+                <MenuItem value="price">
                   <Typography className={classes.alertMenuItems}>
-                    Price ( from low to high )
+                    Price ( from Low to High )
                   </Typography>
                 </MenuItem>
-                <MenuItem value={"-price"}>
+                <MenuItem value="-price">
                   <Typography className={classes.alertMenuItems}>
-                    Price ( from high to low )
+                    Price ( from High to Low )
                   </Typography>
                 </MenuItem>
               </Select>
@@ -74,8 +74,8 @@ export default function SortAlert({
           </Button>
           <Button
             onClick={() => {
-              handleClose();
-              setSubmit(true);
+              handleClose()
+              setSubmit(true)
             }}
             className={classes.alertButton}
           >
@@ -86,7 +86,7 @@ export default function SortAlert({
         </DialogActions>
       </Dialog>
     </div>
-  );
+  )
 }
 
 SortAlert.propTypes = {
@@ -95,4 +95,4 @@ SortAlert.propTypes = {
   sortType: PropTypes.string.isRequired,
   setSortType: PropTypes.func.isRequired,
   setSubmit: PropTypes.func.isRequired,
-};
+}

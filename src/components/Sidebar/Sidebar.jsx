@@ -1,19 +1,19 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Divider, Grid, Tooltip, Typography } from "@mui/material";
-import CustomButton from "./CustomButton";
-import { ReactComponent as Logo } from "../../assets/Logo.svg";
-import { ReactComponent as ShoppingBag } from "../../assets/ShoppingBag.svg";
-import { ReactComponent as ShoppingBagColored } from "../../assets/ShoppingBagColored.svg";
-import { ReactComponent as Headphones } from "../../assets/Headphones.svg";
-import { ReactComponent as HeadphonesColored } from "../../assets/HeadphonesColored.svg";
-import { ReactComponent as Avatar } from "../../assets/Avatar.svg";
-import { ReactComponent as Logout } from "../../assets/Logout.svg";
-import styles from "./styles";
-import useClasses from "../../hooks/useClasses";
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Divider, Grid, Tooltip, Typography } from '@mui/material'
+import CustomButton from './CustomButton'
+import { ReactComponent as Logo } from '../../assets/Logo.svg'
+import { ReactComponent as ShoppingBag } from '../../assets/ShoppingBag.svg'
+import { ReactComponent as ShoppingBagColored } from '../../assets/ShoppingBagColored.svg'
+import { ReactComponent as Headphones } from '../../assets/Headphones.svg'
+import { ReactComponent as HeadphonesColored } from '../../assets/HeadphonesColored.svg'
+import { ReactComponent as Avatar } from '../../assets/Avatar.svg'
+import { ReactComponent as Logout } from '../../assets/Logout.svg'
+import styles from './styles'
+import useClasses from '../../hooks/useClasses'
 
-const Sidebar = ({ clicked, setClicked }) => {
-  const classes = useClasses(styles);
+function Sidebar({ clicked, setClicked }) {
+  const classes = useClasses(styles)
 
   return (
     <Grid
@@ -76,12 +76,12 @@ const Sidebar = ({ clicked, setClicked }) => {
         </Grid>
       </Grid>
     </Grid>
-  );
-};
+  )
+}
 
-export default Sidebar;
+export default Sidebar
 
 Sidebar.propTypes = {
   clicked: PropTypes.string.isRequired,
   setClicked: PropTypes.func.isRequired,
-};
+}

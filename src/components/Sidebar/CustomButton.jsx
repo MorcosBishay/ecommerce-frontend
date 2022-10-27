@@ -1,18 +1,18 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Button, Grid, Typography } from "@mui/material";
-import styles from "./styles";
-import useClasses from "../../hooks/useClasses";
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Button, Grid, Typography } from '@mui/material'
+import styles from './styles'
+import useClasses from '../../hooks/useClasses'
 
-const CustomButton = ({ logo, coloredLogo, text, clicked, setClicked }) => {
-  const classes = useClasses(styles);
+function CustomButton({ logo, coloredLogo, text, clicked, setClicked }) {
+  const classes = useClasses(styles)
 
   return (
     <Button
       onClick={() => setClicked(text)}
       className={classes.customButton}
       sx={{
-        backgroundColor: clicked === text ? "#FFF6F1" : "#FFFFFF",
+        backgroundColor: clicked === text ? '#FFF6F1' : '#FFFFFF',
       }}
     >
       <Grid container direction="row">
@@ -23,7 +23,7 @@ const CustomButton = ({ logo, coloredLogo, text, clicked, setClicked }) => {
           <Typography
             className={classes.typography}
             sx={{
-              color: clicked === text ? "#FE6215" : "#344054",
+              color: clicked === text ? '#FE6215' : '#344054',
             }}
           >
             {text}
@@ -31,10 +31,10 @@ const CustomButton = ({ logo, coloredLogo, text, clicked, setClicked }) => {
         </Grid>
       </Grid>
     </Button>
-  );
-};
+  )
+}
 
-export default CustomButton;
+export default CustomButton
 
 CustomButton.propTypes = {
   logo: PropTypes.element.isRequired,
@@ -42,4 +42,4 @@ CustomButton.propTypes = {
   text: PropTypes.string.isRequired,
   clicked: PropTypes.string.isRequired,
   setClicked: PropTypes.func.isRequired,
-};
+}
