@@ -2,7 +2,7 @@
 
 This is the frontend for e-commerce website.
 
-Developed using Reactjs.
+Developed using Reactjs & React Query.
 
 ## Usage
 
@@ -21,7 +21,7 @@ Developed using Reactjs.
 
 ## Live link depolyed on netlify
 
-[https://635ad21bc4f87e7502c21152--nimble-bienenstitch-8002c6.netlify.app/](https://635ad21bc4f87e7502c21152--nimble-bienenstitch-8002c6.netlify.app/)
+[https://635b094b1f25e90077205da0--nimble-bienenstitch-8002c6.netlify.app](https://635b094b1f25e90077205da0--nimble-bienenstitch-8002c6.netlify.app)
 
 
 ## Tools & Libraries
@@ -29,20 +29,22 @@ Developed using Reactjs.
 ```
 1- React
 
-2- MUI (UI)
+2- React Query (server-side state managment)
 
-3- emotion (styling)
+3- MUI (UI)
 
-4- axios (promise based HTTP client for the browser and node.js)
+4- emotion (styling)
 
-5- axios-retry
+5- axios (promise based HTTP client for the browser and node.js)
 
-6- prop-types
+6- axios-retry
 
-7- eslint
+7- prop-types
 
-8- prettier
+8- eslint
 
-9- react-toastify (notifications)
+9- prettier
+
+10- react-toastify (notifications)
 
 ```
