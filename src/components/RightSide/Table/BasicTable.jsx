@@ -90,7 +90,7 @@ export default function BasicTable({
                 </TableCell>
                 <TableCell align="left" width="15%">
                   <Typography className={classes.priceTypography}>
-                    ${row.price}
+                    ${row.price.toFixed(2)}
                   </Typography>
                 </TableCell>
                 <TableCell align="right" width="15%">
