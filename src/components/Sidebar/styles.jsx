@@ -38,7 +38,7 @@ const styles = () => ({
 
   // CustomButton Styles
   customButton: {
-    width: '100% !important',
+    width: '14vw !important',
     textTransform: 'none !important',
   },
   logoGrid: {

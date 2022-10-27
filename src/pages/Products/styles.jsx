@@ -5,6 +5,7 @@ const styles = () => ({
   rightSideRootGrid: {
     backgroundColor: '#FDFCFC !important',
     borderLeft: '1px solid #E5E5E5 !important',
+    paddingBottom: '24px !important',
   },
   rightSideSubGrid: {
     backgroundColor: '#FDFCFC !important',
