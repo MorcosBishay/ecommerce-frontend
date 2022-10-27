@@ -1,6 +1,6 @@
 import React from "react";
-import "@fontsource/inter";
-import { Divider, Grid, Typography } from "@mui/material";
+import PropTypes from "prop-types";
+import { Divider, Grid, Tooltip, Typography } from "@mui/material";
 import CustomButton from "./CustomButton";
 import { ReactComponent as Logo } from "../../assets/Logo.svg";
 import { ReactComponent as ShoppingBag } from "../../assets/ShoppingBag.svg";
@@ -12,9 +12,9 @@ import { ReactComponent as Logout } from "../../assets/Logout.svg";
 import styles from "./styles";
 import useClasses from "../../hooks/useClasses";
 
-const Sidebar = () => {
+const Sidebar = ({ clicked, setClicked }) => {
   const classes = useClasses(styles);
-  const [clicked, setClicked] = React.useState("Food");
+
   return (
     <Grid
       container
@@ -50,7 +50,9 @@ const Sidebar = () => {
         <Divider className={classes.divider} />
         <Grid container direction="row" justifyContent="space-between">
           <Grid item className={classes.cursor}>
-            <Avatar />
+            <Tooltip title="Profile" placement="top">
+              <Avatar />
+            </Tooltip>
           </Grid>
           <Grid item>
             <Grid container direction="column" justifyContent="space-between">
@@ -67,7 +69,9 @@ const Sidebar = () => {
             </Grid>
           </Grid>
           <Grid item className={classes.cursor}>
-            <Logout />
+            <Tooltip title="Logout" placement="top">
+              <Logout />
+            </Tooltip>
           </Grid>
         </Grid>
       </Grid>
@@ -76,3 +80,8 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
+
+Sidebar.propTypes = {
+  clicked: PropTypes.string.isRequired,
+  setClicked: PropTypes.func.isRequired,
+};

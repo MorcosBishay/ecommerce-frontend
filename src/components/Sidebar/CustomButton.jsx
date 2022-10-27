@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Button, Grid, Typography } from "@mui/material";
 import styles from "./styles";
 import useClasses from "../../hooks/useClasses";
@@ -34,3 +35,11 @@ const CustomButton = ({ logo, coloredLogo, text, clicked, setClicked }) => {
 };
 
 export default CustomButton;
+
+CustomButton.propTypes = {
+  logo: PropTypes.element.isRequired,
+  coloredLogo: PropTypes.element.isRequired,
+  text: PropTypes.string.isRequired,
+  clicked: PropTypes.string.isRequired,
+  setClicked: PropTypes.func.isRequired,
+};

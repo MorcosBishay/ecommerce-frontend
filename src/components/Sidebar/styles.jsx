@@ -4,7 +4,7 @@ const styles = () => ({
   // Sidebar Styles
   root: {
     padding: "23px 16px !important",
-    width: "280px !important",
+    width: "100% !important",
     height: "100% !important",
   },
   sidebarLogo: {
@@ -22,7 +22,7 @@ const styles = () => ({
   nameTypography: {
     fontFamily: "Inter !important",
     fontStyle: "normal !important",
-    fontWeight: 500,
+    fontWeight: "500 !important",
     fontSize: "14px !important",
     lineHeight: "20px !important",
     color: "#344054 !important",
@@ -30,7 +30,7 @@ const styles = () => ({
   emailTypography: {
     fontFamily: "Inter !important",
     fontStyle: "normal !important",
-    fontWeight: 500,
+    fontWeight: "500 !important",
     fontSize: "14px !important",
     lineHeight: "20px !important",
     color: "#667085 !important",
@@ -38,7 +38,7 @@ const styles = () => ({
 
   // CustomButton Styles
   customButton: {
-    width: "100%",
+    width: "100% !important",
     textTransform: "none !important",
   },
   logoGrid: {
@@ -47,7 +47,7 @@ const styles = () => ({
   typography: {
     fontFamily: "Inter !important",
     fontStyle: "normal !important",
-    fontWeight: 500,
+    fontWeight: "500 !important",
     fontSize: "16px !important",
     lineHeight: "24px !important",
   },

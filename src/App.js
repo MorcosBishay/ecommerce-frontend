@@ -1,15 +1,17 @@
 import React from "react";
-import Sidebar from "./components/Sidebar/Sidebar";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Products from "./pages/Products/Products";
 
 function App() {
   return (
     <div
       style={{
-        height: "920px",
-        width: "1440px",
+        height: "100vh",
       }}
     >
-      <Sidebar />
+      <Products />
+      <ToastContainer />
     </div>
   );
 }
