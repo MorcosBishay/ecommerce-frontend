@@ -24,10 +24,20 @@ export default function SortAlert({
   setSubmit,
 }) {
   const classes = useClasses(styles)
+  const [sort, setSort] = React.useState(sortType)
+
+  React.useEffect(() => {
+    setSort(sortType)
+  }, [sortType])
+
+  const handleCloseWithoutSubmit = async () => {
+    await handleClose()
+    setSort(sortType)
+  }
 
   return (
     <div>
-      <Dialog open={open} onClose={handleClose} fullWidth>
+      <Dialog open={open} onClose={handleCloseWithoutSubmit} fullWidth>
         <DialogTitle>
           <Typography className={classes.alertTitle}>Sort</Typography>
         </DialogTitle>
@@ -38,9 +48,9 @@ export default function SortAlert({
                 <Typography className={classes.alertMenuItems}>By</Typography>
               </InputLabel>
               <Select
-                value={sortType}
+                value={sort}
                 label="By"
-                onChange={(e) => setSortType(e.target.value)}
+                onChange={(e) => setSort(e.target.value)}
               >
                 <MenuItem value="name">
                   <Typography className={classes.alertMenuItems}>
@@ -67,14 +77,18 @@ export default function SortAlert({
           </Box>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} className={classes.alertButton}>
+          <Button
+            onClick={handleCloseWithoutSubmit}
+            className={classes.alertButton}
+          >
             <Typography className={classes.alertCancelTypography}>
               Cancel
             </Typography>
           </Button>
           <Button
-            onClick={() => {
+            onClick={async () => {
               handleClose()
+              await setSortType(sort)
               setSubmit(true)
             }}
             className={classes.alertButton}
