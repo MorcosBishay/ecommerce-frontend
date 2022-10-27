@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
+import { useQuery } from 'react-query'
 import { toast } from 'react-toastify'
 import { Button, Grid, Typography } from '@mui/material'
 import Table from '@mui/material/Table'
@@ -27,10 +28,25 @@ export default function BasicTable({
 
   const limit = 9
   const [page, setPage] = useState(1)
-  const [totalPages, setTotalPages] = useState(0)
-  const [items, setItems] = useState([])
 
-  const [loading, setLoading] = useState(true)
+  const handleApiRequest = async () => {
+    let data
+    if (clicked === 'Food') {
+      if (value === 0) {
+        data = await getAllFruitsWithPagination(limit, page, sortType)
+      } else {
+        data = await getAllVegetablesWithPagination(limit, page, sortType)
+      }
+    } else {
+      data = await getAllElectronicsWithPagination(limit, page, sortType)
+    }
+    return data
+  }
+
+  const { data, isLoading } = useQuery(
+    ['items', page, clicked, value, sortType],
+    handleApiRequest,
+  )
 
   useEffect(() => {
     setSubmit(false)
@@ -41,47 +57,14 @@ export default function BasicTable({
     setPage(1)
   }, [clicked, value])
 
-  useEffect(() => {
-    async function fetchData() {
-      await setLoading(true)
-      if (clicked === 'Food') {
-        if (value === 0) {
-          await getAllFruitsWithPagination(limit, page, sortType).then(
-            (res) => {
-              setItems(res.documents)
-              setTotalPages(res.pages)
-            },
-          )
-        } else {
-          await getAllVegetablesWithPagination(limit, page, sortType).then(
-            (res) => {
-              setItems(res.documents)
-              setTotalPages(res.pages)
-            },
-          )
-        }
-      } else {
-        await getAllElectronicsWithPagination(limit, page, sortType).then(
-          (res) => {
-            setItems(res.documents)
-            setTotalPages(res.pages)
-          },
-        )
-      }
-      await setLoading(false)
-    }
-
-    fetchData()
-  }, [clicked, page, submit, value])
-
-  if (loading) return <Loading />
+  if (isLoading) return <Loading />
 
   return (
     <Grid container direction="row">
       <Grid item xs={12}>
         <Table>
           <TableBody>
-            {items.map((row) => (
+            {data.documents.map((row) => (
               <TableRow key={row.name}>
                 <TableCell component="th" scope="row" width="70%">
                   <Typography className={classes.nameTypography}>
@@ -121,7 +104,7 @@ export default function BasicTable({
         </Table>
       </Grid>
       <Grid item xs={12}>
-        <MyPagination page={page} setPage={setPage} totalPages={totalPages} />
+        <MyPagination page={page} setPage={setPage} totalPages={data.pages} />
       </Grid>
     </Grid>
   )
