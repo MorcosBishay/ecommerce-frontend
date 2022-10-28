@@ -21,7 +21,7 @@ Developed using Reactjs & React Query.
 
 ## Live link depolyed on netlify
 
-[https://635b094b1f25e90077205da0--nimble-bienenstitch-8002c6.netlify.app](https://635b094b1f25e90077205da0--nimble-bienenstitch-8002c6.netlify.app)
+[https://nimble-bienenstitch-8002c6.netlify.app/](https://nimble-bienenstitch-8002c6.netlify.app/)
 
 
 ## Tools & Libraries
